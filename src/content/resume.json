@@ -1,0 +1,77 @@
+{
+  "name": "Thanikaivelan",
+  "title": "Senior Software Developer",
+  "summary": "Diligent software engineer with 6 years of experience. Demonstrates strong problem-solving and scalable API design skills and the ability to follow through with projects from inception to completion.",
+  "contacts": {
+    "email": "thanikaivelan.ms@gmail.com",
+    "phone": "+91 8144161999",
+    "location": "Bengaluru, India",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://linkedin.com/in/thanikaivelan"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/thanikaivelan"
+      }
+    ]
+  },
+  "skills": {
+    "Languages": ["Java", "SQL"],
+    "Architecture": ["Microservices"],
+    "Cloud": ["AWS", "Kubernetes"],
+    "Databases": ["MySQL", "Redis"],
+    "Tools": ["Docker"],
+    "Other": ["API design", "Mentoring"]
+  },
+  "education": [
+    {
+      "degree": "B.Tech, Information Technology",
+      "org": "SKCET",
+      "period": "2014–2018",
+      "details": "CGPA 8.6"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Amazon Appstore",
+      "role": "Software Development Engineer",
+      "period": "Sep 2017 – Jul 2018",
+      "highlights": [
+        "Developed a prototype for app recommendations, significantly enhancing customer engagement.",
+        "Acquired hands-on experience with Microservices architecture."
+      ]
+    },
+    {
+      "company": "Zoho (Zoho Books)",
+      "role": "Member Technical Staff",
+      "period": "Aug 2018 – Sep 2021",
+      "highlights": [
+        "Expanded market penetration in Bahrain by tailoring the product to local needs.",
+        "Optimised Tax report performance with data persistence to eliminate redundant queries (≈80% reduction in execution time).",
+        "Led a team of 3 engineers to deliver on time."
+      ]
+    },
+    {
+      "company": "",
+      "role": "Senior Software Engineer",
+      "period": "Oct 2021 – Present",
+      "highlights": [
+        "Delivered a high-impact Christmas gifting feature, driving a 43% YoY increase in holiday sales.",
+        "Led cloud migration for multiple services, including load testing and HPA tuning.",
+        "Designed ReCaptcha integration for an API Gateway with estimations and flow diagrams.",
+        "Operated high-throughput microservices (≈200,000 requests/min).",
+        "Implemented automated top-up for merchant advertising campaigns."
+      ]
+    }
+  ],
+  "meta": {
+    "ogTitle": "Thanikaivelan — Senior Software Developer",
+    "ogDesc": "6 years experience. Scalable APIs, microservices, AWS, Kubernetes.",
+    "keywords": ["Java", "Microservices", "AWS", "Kubernetes", "Senior Software Engineer"]
+  },
+  "settings": {
+    "showPhone": true
+  }
+}

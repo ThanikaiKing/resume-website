@@ -1,93 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { Hero } from "@/components/sections/hero";
+import { About } from "@/components/sections/about";
+import { Experience } from "@/components/sections/experience";
+import { Skills } from "@/components/sections/skills";
+import { Education } from "@/components/sections/education";
+import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="container flex min-h-screen items-center justify-center py-24">
-        <div className="text-center space-y-8 max-w-4xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-4"
-          >
-            <h1 className="fluid-h1 gradient-text">
-              Hello, I&apos;m Your Name
-            </h1>
-            <h2 className="fluid-h2 text-muted-foreground">
-              Full-Stack Developer & UI/UX Designer
-            </h2>
-          </motion.div>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-          >
-            I create beautiful, functional, and user-centered digital experiences. 
-            Passionate about modern web technologies and design systems.
-          </motion.p>
+      <Hero />
 
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex justify-center gap-4"
-          >
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-2xl font-medium hover:bg-primary/90 transition-colors"
-            >
-              <Mail className="h-4 w-4" />
-              Get in Touch
-            </a>
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 border border-border px-6 py-3 rounded-2xl font-medium hover:bg-accent hover:text-accent-foreground transition-colors"
-            >
-              View Work
-              <ArrowDown className="h-4 w-4" />
-            </a>
-          </motion.div>
+      {/* About Section */}
+      <About />
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex justify-center gap-6 pt-8"
-          >
-            <a
-              href="https://github.com"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="GitHub"
-            >
-              <Github className="h-5 w-5" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a
-              href="mailto:your.email@example.com"
-              className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Email"
-            >
-              <Mail className="h-5 w-5" />
-            </a>
-          </motion.div>
-        </div>
-      </section>
+      {/* Experience Section */}
+      <Experience />
+
+      {/* Skills Section */}
+      <Skills />
+
+      {/* Education Section */}
+      <Education />
+
+      {/* Contact Section */}
+      <Contact />
 
       {/* Design System Showcase */}
-      <section id="about" className="container py-24 space-y-16">
+      <section id="design-system" className="container py-24 space-y-16">
         <div className="text-center space-y-4">
           <h2 className="fluid-h2">Design System Showcase</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
