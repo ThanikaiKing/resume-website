@@ -1,0 +1,137 @@
+# .cursorrules for Thanikaivelan Resume Website
+
+## Project Context
+Building a premium single-page resume website for Thanikaivelan with Next.js 15, TypeScript, and Tailwind CSS. Primary users: recruiters/hiring managers (mobile-first), then engineers/leaders (desktop).
+
+## Success Metrics (Non-Negotiable)
+- Lighthouse: Performance ≥95 (mobile), Accessibility ≥95, Best Practices ≥95, SEO ≥95
+- Time-to-content (LCP) < 2.0s on 4G mid-tier device  
+- Mobile-first responsive design (360px → 2xl)
+- WCAG AA compliance
+
+## Development Principles
+
+### 1. Command Best Practices
+- NEVER use complex quoted commands that can break shell parsing
+- Use simple, direct commands: `curl -s http://localhost:3000` not complex pipes with quotes
+- Test commands in isolation before combining
+- If command fails, acknowledge error and use simpler alternative
+
+### 2. Data-Driven Development
+- ALL content must come from `/content/resume.json` - no hardcoded text
+- Create TypeScript interfaces for all data structures
+- Site renders ONLY from JSON data, never hardcoded content
+- Changes to content should never require code changes
+
+### 3. Performance First
+- Optimize all images (next/image with proper sizing)
+- Minimize JavaScript bundle size
+- Implement code splitting where beneficial
+- Use CSS custom properties over runtime CSS-in-JS
+- Measure and maintain Lighthouse scores ≥95
+
+### 4. Accessibility (WCAG AA)
+- Semantic HTML landmarks (main, section, nav, etc.)
+- Proper heading hierarchy (h1 → h2 → h3)
+- Focus management and keyboard navigation
+- Sufficient color contrast ratios
+- Support for reduced motion preferences
+- Screen reader friendly content
+
+### 5. Mobile-First Responsive
+- Start with 360px viewport, scale up
+- Test at breakpoints: 360, 768, 1024, 1440, 1920
+- Touch-friendly interactive elements (44px minimum)
+- Readable typography without zoom
+- Fast loading on mobile networks
+
+### 6. Component Architecture
+- Use shadcn/ui components for accessibility and consistency
+- Create reusable components in `/components/ui/`
+- Layout components in `/components/layout/`
+- Section components in `/components/sections/`
+- Keep components focused and single-purpose
+
+### 7. Iteration Strategy
+- Build iteratively based on user prompts
+- Complete current milestone before moving to next
+- Validate each feature works before adding complexity
+- Document decisions in commit messages
+
+## Current Status: M1 Complete ✅
+- ✅ Bootstrap: Next.js 15 + TypeScript setup
+- ✅ Design system: Tailwind + spacing/colors/typography
+- ✅ Theme system: Light/dark with class strategy
+- ✅ Font pairing: Inter + Manrope with fluid typography
+- ✅ Basic layout: Header with navigation and theme toggle
+
+## Next Priorities (M2)
+1. **Data Model**: Create `/content/resume.json` with TypeScript interfaces
+2. **Content Sections**: Hero, About, Experience, Skills, Education, Contact
+3. **Mobile Navigation**: Drawer/hamburger menu for mobile
+4. **Contact Form**: Integration with Formspree
+5. **Performance**: Image optimization and bundle analysis
+
+## Sections Required (from PRD)
+1. **Hero**: Name, title, summary, primary CTAs (PDF download & contact)
+2. **About**: Expanded summary + strengths  
+3. **Experience**: Timeline with role, company, period, 3–6 highlights each
+4. **Skills**: Grouped badges with tooltips/captions
+5. **Education**: Degree, org, period, CGPA
+6. **Contact**: Form with success/error states, direct contact chips
+
+## Technical Constraints
+- Next.js 15 with App Router (not Pages Router)
+- TypeScript strict mode
+- Tailwind CSS with design system tokens
+- shadcn/ui for accessible components
+- Framer Motion for animations (respect reduced motion)
+- ESLint + Prettier for code quality
+- Absolute imports with `@/` prefix
+
+## File Organization
+```
+src/
+├── app/                 # Next.js App Router
+├── components/
+│   ├── ui/             # shadcn/ui components
+│   ├── layout/         # Header, Footer, Navigation
+│   ├── sections/       # Hero, About, Experience, etc.
+│   └── providers/      # Theme, context providers
+├── content/            # resume.json data
+├── lib/               # Utilities, schemas, validations
+├── styles/            # Global CSS, design system
+└── types/             # TypeScript definitions
+```
+
+## Code Quality Standards
+- All components must be TypeScript typed
+- Use proper semantic HTML elements
+- Implement error boundaries for robustness
+- Add loading and error states for dynamic content
+- Test responsive design at all breakpoints
+- Validate accessibility with tools
+
+## Git Workflow
+- Descriptive commit messages with emoji prefixes
+- Commit frequently with logical chunks
+- Fix linting issues before committing
+- Test functionality before pushing
+
+## Never Do
+- Hardcode content instead of using JSON data
+- Break responsive design at any breakpoint
+- Compromise accessibility for aesthetics
+- Use complex shell commands that can fail parsing
+- Add features not requested by user
+- Skip performance optimization
+- Ignore TypeScript errors or ESLint warnings
+
+## Always Do
+- Validate design at mobile breakpoints first
+- Test with keyboard navigation
+- Check color contrast ratios
+- Optimize images and assets
+- Follow the PRD requirements strictly
+- Build iteratively based on user feedback
+- Maintain clean, readable code
