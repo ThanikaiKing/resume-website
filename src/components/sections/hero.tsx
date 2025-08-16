@@ -68,7 +68,7 @@ export function Hero({ avatarSrc, className }: HeroProps) {
   return (
     <section 
       className={cn(
-        "relative min-h-screen flex items-center justify-center py-16 px-4 sm:px-6 lg:px-8",
+        "relative min-h-screen flex items-start sm:items-center justify-center pt-24 pb-8 sm:py-16 lg:py-16 px-4 sm:px-6 lg:px-8",
         "bg-gradient-to-br from-background via-background/95 to-background/90",
         className
       )}
@@ -77,7 +77,7 @@ export function Hero({ avatarSrc, className }: HeroProps) {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="container mx-auto text-center space-y-8 max-w-4xl"
+        className="container mx-auto text-center space-y-6 sm:space-y-8 max-w-4xl"
       >
         {/* Avatar - Optional */}
         {avatarSrc && (
@@ -102,7 +102,7 @@ export function Hero({ avatarSrc, className }: HeroProps) {
         )}
 
         {/* Name with Gradient */}
-        <motion.div variants={itemVariants} className="space-y-4">
+        <motion.div variants={itemVariants} className="space-y-2 sm:space-y-4">
           <h1 className="fluid-h1 gradient-text font-bold tracking-tight">
             {name}
           </h1>
@@ -123,7 +123,7 @@ export function Hero({ avatarSrc, className }: HeroProps) {
         {/* Primary CTAs */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2 sm:pt-4"
         >
           {/* Download Resume Button */}
           <motion.a
@@ -155,7 +155,7 @@ export function Hero({ avatarSrc, className }: HeroProps) {
         {socialLinks.length > 0 && (
           <motion.div
             variants={itemVariants}
-            className="pt-8"
+            className="pt-6 sm:pt-8"
           >
             <div className="flex justify-center items-center gap-4">
               <span className="text-sm text-foreground/60 font-medium">Connect with me</span>
@@ -188,10 +188,10 @@ export function Hero({ avatarSrc, className }: HeroProps) {
           </motion.div>
         )}
 
-        {/* Scroll Indicator - Optional */}
+        {/* Scroll Indicator */}
         <motion.div
           variants={itemVariants}
-          className="pt-16 hidden lg:block"
+          className="pt-6 sm:pt-8 lg:pt-12"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
@@ -203,7 +203,7 @@ export function Hero({ avatarSrc, className }: HeroProps) {
             className="flex flex-col items-center gap-2 text-foreground/40"
           >
             <span className="text-sm font-medium">Scroll to explore</span>
-            <div className="w-px h-8 bg-gradient-to-b from-foreground/40 to-transparent"></div>
+            <div className="w-px h-6 sm:h-8 bg-gradient-to-b from-foreground/40 to-transparent"></div>
           </motion.div>
         </motion.div>
       </motion.div>
