@@ -28,17 +28,27 @@ const ThemeProviderContext = React.createContext<ThemeProviderState>(initialStat
 export function ThemeProvider({
   children,
   defaultTheme = "system",
-  storageKey = "vite-ui-theme",
+  storageKey = "resume-site-theme",
   attribute = "class",
   enableSystem = true,
   disableTransitionOnChange = false,
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = React.useState<Theme>(
-    () => (localStorage?.getItem(storageKey) as Theme) || defaultTheme
-  );
+  const [theme, setTheme] = React.useState<Theme>(defaultTheme);
+  const [mounted, setMounted] = React.useState(false);
+
+  // Load theme from localStorage after mounting (client-side only)
+  React.useEffect(() => {
+    setMounted(true);
+    const storedTheme = localStorage.getItem(storageKey) as Theme;
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, [storageKey]);
 
   React.useEffect(() => {
+    if (!mounted) return;
+
     const root = window.document.documentElement;
 
     root.classList.remove("light", "dark");
@@ -54,12 +64,14 @@ export function ThemeProvider({
     }
 
     root.classList.add(theme);
-  }, [theme, enableSystem]);
+  }, [theme, enableSystem, mounted]);
 
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      localStorage?.setItem(storageKey, theme);
+      if (mounted) {
+        localStorage.setItem(storageKey, theme);
+      }
       setTheme(theme);
     },
   };
