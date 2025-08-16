@@ -82,6 +82,7 @@
   :root:not(.light) {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --muted-foreground: #a1a1aa;
   }
 }
 
