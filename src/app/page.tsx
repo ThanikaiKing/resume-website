@@ -16,7 +16,7 @@ export default function Home() {
             className="space-y-4"
           >
             <h1 className="fluid-h1 gradient-text">
-              Hello, I'm Your Name
+              Hello, I&apos;m Your Name
             </h1>
             <h2 className="fluid-h2 text-muted-foreground">
               Full-Stack Developer & UI/UX Designer
