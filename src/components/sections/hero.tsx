@@ -68,7 +68,7 @@ export function Hero({ avatarSrc, className }: HeroProps) {
   return (
     <section 
       className={cn(
-        "relative min-h-screen flex items-start sm:items-center justify-center pt-24 pb-8 sm:py-16 lg:py-16 px-4 sm:px-6 lg:px-8",
+        "relative min-h-[90vh] sm:min-h-screen flex items-start sm:items-center justify-center pt-24 pb-4 sm:py-16 lg:py-16 px-4 sm:px-6 lg:px-8",
         "bg-gradient-to-br from-background via-background/95 to-background/90",
         className
       )}
@@ -126,9 +126,28 @@ export function Hero({ avatarSrc, className }: HeroProps) {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-2 sm:pt-4"
         >
           {/* Download Resume Button */}
-          <motion.a
-            href="/resume.pdf" // You'll need to add this file to the public folder
-            download={`${name}-Resume.pdf`}
+          <motion.button
+            onClick={() => {
+              // Check if PDF exists, otherwise show message
+              fetch('/resume.pdf')
+                .then(response => {
+                  if (response.ok && response.headers.get('content-type')?.includes('application/pdf')) {
+                    // PDF exists and is valid, trigger download
+                    const link = document.createElement('a');
+                    link.href = '/resume.pdf';
+                    link.download = `${name}-Resume.pdf`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  } else {
+                    // PDF not available, show message
+                    alert('PDF resume is not available yet. Please use the contact form below to request a copy or visit my LinkedIn profile.');
+                  }
+                })
+                .catch(() => {
+                  alert('PDF resume is not available yet. Please use the contact form below to request a copy.');
+                });
+            }}
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"
@@ -136,7 +155,7 @@ export function Hero({ avatarSrc, className }: HeroProps) {
           >
             <Download className="w-5 h-5 transition-transform group-hover:scale-110" />
             Download PDF Resume
-          </motion.a>
+          </motion.button>
 
           {/* Contact Button */}
           <motion.a
@@ -198,12 +217,23 @@ export function Hero({ avatarSrc, className }: HeroProps) {
             transition={{ 
               duration: 2, 
               repeat: Infinity, 
-              ease: [0.42, 0, 0.58, 1] 
+              ease: [0.4, 0, 0.6, 1] 
             }}
-            className="flex flex-col items-center gap-2 text-foreground/40"
+            className="flex flex-col items-center gap-2 text-foreground/70"
           >
-            <span className="text-sm font-medium">Scroll to explore</span>
-            <div className="w-px h-6 sm:h-8 bg-gradient-to-b from-foreground/40 to-transparent"></div>
+            <span className="text-sm sm:text-base font-medium">Scroll to explore</span>
+            <motion.div 
+              className="flex flex-col items-center"
+              animate={{ opacity: [0.4, 1, 0.4] }}
+              transition={{ 
+                duration: 2, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+            >
+              <div className="w-0.5 h-8 sm:h-10 bg-gradient-to-b from-foreground/70 to-transparent rounded-full"></div>
+              <div className="w-2 h-2 bg-foreground/70 rounded-full -mt-1"></div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>

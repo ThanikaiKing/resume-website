@@ -180,7 +180,7 @@ export function About({ className }: AboutProps) {
     <section 
       id="about"
       className={cn(
-        "py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-background via-background/98 to-accent/5",
+        "pt-8 pb-16 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24 bg-gradient-to-br from-background via-background/98 to-accent/5",
         className
       )}
     >
